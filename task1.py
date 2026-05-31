@@ -90,6 +90,29 @@ class LinkedList:
                     current.data, next_node.data = next_node.data, current.data
                 current = next_node
 
+    def merge(self, other: "LinkedList") -> "LinkedList":
+        merged_list = LinkedList()
+        current1 = self.head
+        current2 = other.head
+
+        while current1 and current2:
+            if current1.data < current2.data:
+                merged_list.insert_at_end(current1.data)
+                current1 = current1.next
+            else:
+                merged_list.insert_at_end(current2.data)
+                current2 = current2.next
+
+        while current1:
+            merged_list.insert_at_end(current1.data)
+            current1 = current1.next
+
+        while current2:
+            merged_list.insert_at_end(current2.data)
+            current2 = current2.next
+
+        return merged_list
+
 
 def main() -> None:
     llist = LinkedList()
@@ -137,6 +160,22 @@ def main() -> None:
 
     print("\nЗв'язний список після сортування бульбашкою:")
     llist.print_list()
+
+    llist2 = LinkedList()
+    llist2.insert_at_end(1)
+    llist2.insert_at_end(9)
+    llist2.insert_at_end(5)
+    llist2.insert_at_end(7)
+    llist2.insert_at_end(3)
+
+    llist2.bubble_sort()
+
+    print("\nДругий зв'язний список після сортування бульбашкою:")
+    llist2.print_list()
+
+    merged_list = llist.merge(llist2)
+    print("\nОб'єднаний зв'язний список:")
+    merged_list.print_list()
 
 
 if __name__ == "__main__":
