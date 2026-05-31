@@ -14,8 +14,8 @@ class Node:
         self.left = None
         self.right = None
         self.val = key
-        self.color = color  # Додатковий аргумент для зберігання кольору вузла
-        self.id = str(uuid.uuid4())  # Унікальний ідентифікатор для кожного вузла
+        self.color = color  # Additional argument for storing the node color
+        self.id = str(uuid.uuid4())  # Unique identifier for each node
 
 
 def add_edges(
@@ -121,7 +121,7 @@ def bfs_visualize(tree_root: Node, n: int) -> None:
     if tree_root is None:
         return
 
-    root = copy_tree(tree_root)  # Створюємо копію дерева для візуалізації
+    root = copy_tree(tree_root)  # Create a tree copy for visualization
 
     queue = deque([root])
     color_gen = gray_colors(n)
@@ -142,7 +142,7 @@ def dfs_visualize(tree_root: Node, n: int) -> Node:
     if tree_root is None:
         return None
 
-    root = copy_tree(tree_root)  # Створюємо копію дерева для візуалізації
+    root = copy_tree(tree_root)  # Create a tree copy for visualization
 
     stack = [root]
     color_gen = gray_colors(n)

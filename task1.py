@@ -28,7 +28,7 @@ class LinkedList:
 
     def insert_after(self, prev_node: Node, data: int) -> None:
         if prev_node is None:
-            print("Попереднього вузла не існує.")
+            print("Previous node does not exist.")
             return
         new_node = Node(data)
         new_node.next = prev_node.next
@@ -117,48 +117,48 @@ class LinkedList:
 def main() -> None:
     llist = LinkedList()
 
-    # Вставляємо вузли в початок
+    # Insert nodes at the beginning
     llist.insert_at_beginning(5)
     llist.insert_at_beginning(10)
     llist.insert_at_beginning(15)
 
-    # Вставляємо вузли в кінець
+    # Insert nodes at the end
     llist.insert_at_end(20)
     llist.insert_at_end(25)
 
-    # Друк зв'язного списку
-    print("Зв'язний список:")
+    # Print the linked list
+    print("Linked list:")
     llist.print_list()
 
-    # Видаляємо вузол
+    # Delete a node
     llist.delete_node(10)
 
-    print("\nЗв'язний список після видалення вузла з даними 10:")
+    print("\nLinked list after deleting the node with value 10:")
     llist.print_list()
 
-    # Пошук елемента у зв'язному списку
-    print("\nШукаємо елемент 15:")
+    # Search for an element in the linked list
+    print("\nSearching for element 15:")
     element = llist.search_element(15)
     if element:
         print(element.data)
 
-    # Додаємо кільа вузлів в початок
+    # Add several nodes at the beginning
     llist.insert_at_beginning(30)
     llist.insert_at_beginning(35)
     llist.insert_at_beginning(40)
 
-    print("\nЗв'язний список після додавання кількох вузлів в початок:")
+    print("\nLinked list after adding several nodes at the beginning:")
     llist.print_list()
 
-    # Реверс зв'язного списку
+    # Reverse the linked list
     llist.reverse_list()
 
-    print("\nЗв'язний список після реверсу:")
+    print("\nLinked list after reversing:")
     llist.print_list()
 
     llist.bubble_sort()
 
-    print("\nЗв'язний список після сортування бульбашкою:")
+    print("\nLinked list after bubble sort:")
     llist.print_list()
 
     llist2 = LinkedList()
@@ -170,11 +170,11 @@ def main() -> None:
 
     llist2.bubble_sort()
 
-    print("\nДругий зв'язний список після сортування бульбашкою:")
+    print("\nSecond linked list after bubble sort:")
     llist2.print_list()
 
     merged_list = llist.merge(llist2)
-    print("\nОб'єднаний зв'язний список:")
+    print("\nMerged linked list:")
     merged_list.print_list()
 
 
