@@ -73,6 +73,23 @@ class LinkedList:
             current = next_node
         self.head = prev
 
+    def bubble_sort(self) -> None:
+        if self.head is None:
+            return
+        count = 0
+        current = self.head
+        while current:
+            count += 1
+            current = current.next
+
+        for curr_count in range(count, 0, -1):
+            current = self.head
+            for _ in range(curr_count - 1):
+                next_node = current.next
+                if current.data > next_node.data:
+                    current.data, next_node.data = next_node.data, current.data
+                current = next_node
+
 
 def main() -> None:
     llist = LinkedList()
@@ -114,6 +131,11 @@ def main() -> None:
     llist.reverse_list()
 
     print("\nЗв'язний список після реверсу:")
+    llist.print_list()
+
+    llist.bubble_sort()
+
+    print("\nЗв'язний список після сортування бульбашкою:")
     llist.print_list()
 
 
