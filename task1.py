@@ -63,6 +63,16 @@ class LinkedList:
             print(current.data)
             current = current.next
 
+    def reverse_list(self) -> None:
+        prev = None
+        current = self.head
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        self.head = prev
+
 
 def main() -> None:
     llist = LinkedList()
@@ -91,6 +101,20 @@ def main() -> None:
     element = llist.search_element(15)
     if element:
         print(element.data)
+
+    # Додаємо кільа вузлів в початок
+    llist.insert_at_beginning(30)
+    llist.insert_at_beginning(35)
+    llist.insert_at_beginning(40)
+
+    print("\nЗв'язний список після додавання кількох вузлів в початок:")
+    llist.print_list()
+
+    # Реверс зв'язного списку
+    llist.reverse_list()
+
+    print("\nЗв'язний список після реверсу:")
+    llist.print_list()
 
 
 if __name__ == "__main__":
